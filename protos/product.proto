@@ -17,9 +17,13 @@ message NewProduct {
     string price = 2;
 }
 message Empty{}
+message Result {
+    string status = 1;
+}
 service ProductService {
     rpc listProduct (Empty) returns (ProductList);
     rpc getProduct (ProductID) returns (Product);
-    rpc listProduct (Empty) returns (ProductList);
-    rpc listProduct (Empty) returns (ProductList);
+    rpc createProduct (NewProduct) returns (Result);
+    rpc updateProduct (Product) returns (Result);
+    rpc deleteProduct (ProductID) returns (Result);
 }
