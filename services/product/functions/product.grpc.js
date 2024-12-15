@@ -1,4 +1,13 @@
-async function listProduct(call,callback){}
+const productModel = require("../model/product.model")
+
+async function listProduct(call,callback){
+    try {
+    const products = await productModel.find({})
+    callback(null , {products})
+    } catch (error) {
+        callback(error , null)
+    }
+}
 async function getProduct(call,callback){}
 async function createProduct(call,callback){}
 async function updateProduct(call,callback){}
